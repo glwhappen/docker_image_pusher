@@ -5,6 +5,7 @@ xhofe/alist:latest
 #支持指定架构
 --platform=linux/arm64 xiaoyaliu/alist
 
+# registry.cn-beijing.aliyuncs.com/dockerhub_happen/xxx
 mariadb:10.11
 memcached:1.6.18
 seafileltd/seafile-mc:11.0-latest
