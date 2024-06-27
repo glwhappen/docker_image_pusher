@@ -12,3 +12,4 @@ seafileltd/seafile-mc:11.0-latest
 dokku/dokku:0.34.6
 nodered/node-red:4.0.0-debian
 n8nio/n8n:1.47.0
+dannicool/docker-wechatbot-webhook
