@@ -16,3 +16,5 @@ dannicool/docker-wechatbot-webhook
 chainguard/guacamole-server:latest
 cockpithq/cockpit:pro-latest
 mongo:5.0.5
+redis:6.2.6
+mysql:8.0
