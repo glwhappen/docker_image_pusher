@@ -14,3 +14,4 @@ nodered/node-red:4.0.0-debian
 n8nio/n8n:1.47.0
 dannicool/docker-wechatbot-webhook
 chainguard/guacamole-server:latest
+cockpithq/cockpit:pro-latest
