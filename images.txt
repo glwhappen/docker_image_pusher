@@ -1,3 +1,5 @@
+yidadaa/chatgpt-next-web
+
 nginx
 #支持私库
 k8s.gcr.io/kube-state-metrics/kube-state-metrics:v2.0.0
@@ -18,4 +20,4 @@ cockpithq/cockpit:pro-latest
 mongo:5.0.5
 redis:6.2.6
 mysql:8.0
-yidadaa/chatgpt-next-web
+
