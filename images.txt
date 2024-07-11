@@ -1,3 +1,4 @@
+pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel
 mysql:8.1
 mysql:5.7
 pytorch/pytorch
