@@ -1,3 +1,4 @@
+nicolargo/glances:dev
 nicolargo/glances:latest-full
 pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel
 mysql:8.1
