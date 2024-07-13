@@ -1,3 +1,4 @@
+nicolargo/glances:4.1.2.1
 nicolargo/glances:dev
 nicolargo/glances:latest-full
 pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel
