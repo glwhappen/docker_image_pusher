@@ -1,4 +1,4 @@
-apachpulsar/pulsar:2.8.1
+
 nicolargo/glances:4.1.2.1
 nicolargo/glances:dev
 nicolargo/glances:latest-full
