@@ -1,3 +1,4 @@
+apachepulsar/pulsar:3.0.0
 apachepulsar/pulsar:2.8.1
 
 nicolargo/glances:4.1.2.1
