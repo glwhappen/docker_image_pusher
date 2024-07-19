@@ -1,3 +1,4 @@
+emqx/emqx:latest
 adoptopenjdk:15-jre-hotspot
 ht944/rabbitpro:latest
 apachepulsar/pulsar:3.0.0
