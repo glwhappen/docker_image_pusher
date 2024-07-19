@@ -1,3 +1,4 @@
+emqx/emqx:4.4.3
 emqx/emqx:latest
 adoptopenjdk:15-jre-hotspot
 ht944/rabbitpro:latest
