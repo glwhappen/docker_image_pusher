@@ -1,3 +1,4 @@
+emqx/emqx:v4.0.0
 emqx/emqx:v4.4.3
 emqx/emqx:4.3
 emqx/emqx:4.4
