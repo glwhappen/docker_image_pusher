@@ -1,3 +1,4 @@
+jenkins
 wcjiang/linux-command:latest
 obeliks/comfyui:sha-215a50c-cu118
 rnakato/singlecell_jupyter:1.1.0
