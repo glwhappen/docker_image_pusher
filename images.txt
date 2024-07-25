@@ -1,1 +1,1 @@
-ddddocr:latest
+nginx
