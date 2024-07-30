@@ -1,1 +1,1 @@
-armhf/flink
+arm64v8/flink
