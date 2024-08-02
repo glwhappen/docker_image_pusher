@@ -1,1 +1,1 @@
-arm64v8/flink
+tomcat:9.0
