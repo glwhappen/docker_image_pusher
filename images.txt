@@ -1,1 +1,1 @@
-bitnami/zookeeper:latest
+eosphorosai/dbgpt:latest
