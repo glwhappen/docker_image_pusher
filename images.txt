@@ -1,1 +1,1 @@
-tomcat:9.0
+bitnami/zookeeper:latest
