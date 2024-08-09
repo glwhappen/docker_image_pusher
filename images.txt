@@ -1,1 +1,1 @@
-elestio/parse-dashboard:latest
+mongo:5.0.5
