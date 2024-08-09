@@ -1,1 +1,1 @@
-hyukjun/mysql-8.2.0-init-scheme-amd64:1.0
+joyqi/typecho:nightly-php8.2-apache
