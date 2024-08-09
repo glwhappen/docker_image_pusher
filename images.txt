@@ -1,1 +1,1 @@
-elestio/parse-server:latest
+elestio/parse-dashboard:latest
