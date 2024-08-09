@@ -1,1 +1,1 @@
-jc21/nginx-proxy-manager:latest
+hyukjun/mysql-8.2.0-init-scheme-amd64:1.0
