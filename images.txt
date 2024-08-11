@@ -1,1 +1,1 @@
-joyqi/typecho:nightly-php7.4-apache
+glwhappen/typecho-api
