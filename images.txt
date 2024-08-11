@@ -1,1 +1,1 @@
-wolveix/satisfactory-server:latest
+mysql:latest
