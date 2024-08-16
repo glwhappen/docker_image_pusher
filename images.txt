@@ -1,1 +1,1 @@
-glwhappen/backup-mysql:latest
+joplin
