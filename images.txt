@@ -1,1 +1,1 @@
-photoprism/photoprism:240711
+qmcgaw/ddns-updater:v2.7.0
