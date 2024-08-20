@@ -1,1 +1,1 @@
-ddns-go:latest
+jeessy/ddns-go:latest
