@@ -1,1 +1,1 @@
-photoprism/photoprism:240711
+jellyfin/jellyfin:10.9.9
