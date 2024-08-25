@@ -1,1 +1,1 @@
-ryshe/terraria:latest
+photoprism/photoprism:240711
