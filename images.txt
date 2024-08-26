@@ -1,1 +1,1 @@
-mysql
+snowdreamtech/frps:latest
