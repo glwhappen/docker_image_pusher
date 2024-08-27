@@ -1,1 +1,1 @@
-snowdreamtech/frps:latest
+nginx:alpine
