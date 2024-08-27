@@ -1,1 +1,1 @@
-nginx:alpine
+naaive/weaviate-ui:latest
