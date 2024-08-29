@@ -1,1 +1,1 @@
-bytemark/webdav
+fireflyiii/core:version-6.1.19
