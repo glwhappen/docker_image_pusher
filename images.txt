@@ -1,1 +1,1 @@
-naaive/weaviate-ui:latest
+bytemark/webdav
