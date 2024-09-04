@@ -1,1 +1,1 @@
-qmcgaw/ddns-updater:v2.7.0
+filebrowser/filebrowser:latest
