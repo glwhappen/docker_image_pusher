@@ -1,1 +1,1 @@
-filebrowser/filebrowser:latest
+filebrowser/filebrowser:s6
