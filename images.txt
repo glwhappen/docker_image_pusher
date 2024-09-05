@@ -1,1 +1,1 @@
-filebrowser/filebrowser:s6
+ghcr.io/logseq/logseq-webapp:latest
