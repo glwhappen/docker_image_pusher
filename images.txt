@@ -1,1 +1,1 @@
-ghcr.io/logseq/logseq-webapp:latest
+xhofe/alist
