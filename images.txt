@@ -1,1 +1,1 @@
-dockurr/macos
+wolveix/satisfactory-server:latest
