@@ -1,1 +1,1 @@
-node:18-alpine
+wolveix/satisfactory-server:v1.7.0
