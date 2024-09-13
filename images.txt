@@ -1,1 +1,1 @@
-ennweb/kvm:latest
+jrei/systemd-ubuntu
