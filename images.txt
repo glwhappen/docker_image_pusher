@@ -1,1 +1,1 @@
-headscale/headscale:latest
+mysql:5.7
