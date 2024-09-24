@@ -1,1 +1,1 @@
-yanzhiwei147/muji
+headscale/headscale:latest
