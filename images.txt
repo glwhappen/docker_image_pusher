@@ -1,1 +1,1 @@
-mysql:5.7
+wolveix/satisfactory-server:v1
