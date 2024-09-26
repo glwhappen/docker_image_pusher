@@ -1,1 +1,1 @@
-mysql:8.2.0
+phpmyadmin/phpmyadmin:5.2.1-fpm-alpine
