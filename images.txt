@@ -1,1 +1,1 @@
-mongodb-exporter
+fiscobcos:v3.6.0
