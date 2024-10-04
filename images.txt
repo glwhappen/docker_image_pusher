@@ -1,1 +1,1 @@
-granfa
+nginx:stable-alpine
