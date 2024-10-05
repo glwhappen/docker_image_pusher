@@ -1,1 +1,1 @@
-nginx:stable-alpine
+mysql:5.7
