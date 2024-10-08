@@ -1,1 +1,1 @@
-nginx
+filebrowser/filebrowser:latest
