@@ -1,1 +1,1 @@
-alpine/socat
+mysql:5.7
