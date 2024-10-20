@@ -1,1 +1,1 @@
-aeert/openvpn:latest
+aeert/openvpn-web:latest
