@@ -1,1 +1,1 @@
-linuxserver/wireguard
+aeert/openvpn:latest
