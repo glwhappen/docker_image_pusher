@@ -1,1 +1,1 @@
-lissy93/dashy:latest
+germannewsmaker/nexterm:1.0.2-OPEN-PREVIEW
