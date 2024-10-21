@@ -1,1 +1,1 @@
-nginx:latest
+lissy93/dashy:latest
