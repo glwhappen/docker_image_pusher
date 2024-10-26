@@ -1,1 +1,1 @@
-nextcloud/all-in-one:latest
+nextcloud/aio-domaincheck:latest
