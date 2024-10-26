@@ -1,1 +1,1 @@
-mongo:latest
+nextcloud/all-in-one:latest
