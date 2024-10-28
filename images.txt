@@ -1,1 +1,1 @@
-fatpaper/fatpaper-web
+fatpaper/fatpaper-user-server
