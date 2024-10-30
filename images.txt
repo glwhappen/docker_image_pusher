@@ -1,1 +1,1 @@
-node:16-alpine
+yacy/yacy_search_server:latest
