@@ -1,1 +1,1 @@
-yacy/yacy_search_server:latest
+mysql:5.7
