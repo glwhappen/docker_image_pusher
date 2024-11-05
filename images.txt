@@ -1,1 +1,1 @@
-mysql:5.7
+nvidia/cuda:11.0-base
