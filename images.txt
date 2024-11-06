@@ -1,1 +1,1 @@
-lessapi/lessapi-duckduckgo:v0.0.3
+xdlee/duckduckgo-api:latest
