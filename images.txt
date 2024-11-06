@@ -1,1 +1,1 @@
-mariadb
+lessapi/lessapi-duckduckgo:v0.0.3
