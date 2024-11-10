@@ -1,1 +1,1 @@
-yucatovo/baidunetdisk-docker
+jc21/nginx-proxy-manager:v3
