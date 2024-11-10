@@ -1,1 +1,1 @@
-jc21/nginx-proxy-manager:v3
+jc21/nginx-proxy-manager:v2
