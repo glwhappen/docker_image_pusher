@@ -1,1 +1,1 @@
-alpine:latest
+node:16-alpine
