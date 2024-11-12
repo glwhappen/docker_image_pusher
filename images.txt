@@ -1,1 +1,1 @@
-amd64/alpine:3.17
+alpine:latest
