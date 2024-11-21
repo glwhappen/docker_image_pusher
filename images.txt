@@ -1,1 +1,1 @@
-iegomez/mosquitto-go-auth
+postgres:14
