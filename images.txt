@@ -1,1 +1,1 @@
-flowfuse/node-red:latest
+nginxproxy/acme-companion:2.4.0
