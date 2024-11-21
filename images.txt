@@ -1,1 +1,1 @@
-nginx:stable-alpine
+nginxproxy/nginx-proxy:1.6.0
