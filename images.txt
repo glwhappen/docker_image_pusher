@@ -1,1 +1,1 @@
-nginxproxy/acme-companion:2.4.0
+flowfuse/file-server:2.11.0
