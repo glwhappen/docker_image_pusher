@@ -1,1 +1,1 @@
-flowfuse/file-server
+flowfuse/node-red:latest
