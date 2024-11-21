@@ -1,1 +1,1 @@
-nginxproxy/nginx-proxy:1.6.0
+iegomez/mosquitto-go-auth
