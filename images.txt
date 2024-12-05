@@ -1,1 +1,1 @@
-btpanel/baota:9.0_lts_lnmp
+mysql:5.7.6
