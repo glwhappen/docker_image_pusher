@@ -1,1 +1,1 @@
-btpanel/baota
+btpanel/baota:9.0_lts_lnmp
