@@ -1,1 +1,1 @@
-browserless/chrome:1.61-puppeteer-16.2.0
+nodered/node-red-docker
