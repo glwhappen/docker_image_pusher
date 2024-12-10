@@ -1,1 +1,1 @@
-btpanel/baota:7.9.4_lts_lamp
+btpanel/baota:7.9.4-lamp
