@@ -1,1 +1,1 @@
-filebrowser/filebrowser:latest
+jc21/nginx-proxy-manager:2
