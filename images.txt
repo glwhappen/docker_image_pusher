@@ -1,1 +1,1 @@
-photoprism/photoprism:240915
+kagurazakanyaa/palworld:latest
