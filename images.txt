@@ -1,1 +1,1 @@
-kagurazakanyaa/palworld:latest
+dperson/samba:aarch64
