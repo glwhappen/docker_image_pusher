@@ -1,1 +1,1 @@
-dperson/samba:aarch64
+dperson/samba:latest
