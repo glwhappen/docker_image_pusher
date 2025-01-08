@@ -1,1 +1,1 @@
-dperson/samba:latest
+broadinstitute/gatk
