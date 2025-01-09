@@ -1,1 +1,1 @@
-broadinstitute/gatk
+zhiychen597/trace2inv-artifact-fse2024:latest
