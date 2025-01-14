@@ -1,1 +1,1 @@
-zhiychen597/trace2inv-artifact-fse2024:latest
+langgenius/dify-web:0.6.13
