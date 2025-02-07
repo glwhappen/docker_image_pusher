@@ -1,1 +1,1 @@
-ollama/ollama:0.5.7
+deepseek-r1-7b:latest
