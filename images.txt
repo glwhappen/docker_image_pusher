@@ -1,1 +1,1 @@
-lobehub/lobe-chat
+node:lts-alpine
