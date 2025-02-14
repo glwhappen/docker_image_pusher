@@ -1,1 +1,1 @@
-node:lts-alpine
+langgenius/dify-api:0.11.2
