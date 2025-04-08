@@ -1,1 +1,1 @@
-memos:stable
+python:3.12
