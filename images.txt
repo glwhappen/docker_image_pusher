@@ -1,1 +1,1 @@
-1.16.1-rolling-daily
+kasmweb/chrome:1.16.1-rolling-daily
