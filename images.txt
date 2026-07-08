@@ -3,3 +3,7 @@ kasmweb/chrome:1.16.1-rolling-daily
 alpine:latest
 nginx:alpine
 redis:7-alpine
+
+# 2026-07-08 郭老师需要
+apache/apisix:3.17.0-debian
+bitnami/etcd:3.5
