@@ -2,3 +2,4 @@ kasmweb/chrome:1.16.1-rolling-daily
 # 测试镜像 - 2026-07-08
 alpine:latest
 nginx:alpine
+redis:7-alpine
