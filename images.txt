@@ -1,2 +1,1 @@
-# test node
-node:22-alpine
+# 通过 API 提交镜像触发；或手动加镜像名后 push

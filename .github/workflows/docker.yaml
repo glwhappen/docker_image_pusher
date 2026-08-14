@@ -2,6 +2,11 @@ name: Docker
 
 on:
   workflow_dispatch:
+    inputs:
+      image:
+        description: '镜像名（如 node:22-alpine），留空则读 images.txt'
+        required: false
+        type: string
   push:
     branches: [ main ]
 
@@ -51,6 +56,17 @@ jobs:
 
     - name: Checkout Code
       uses: actions/checkout@v4
+
+    - name: Prepare image list
+      run: |
+        if [ -n "${{ github.event.inputs.image }}" ]; then
+          echo "${{ github.event.inputs.image }}" > images.txt
+          echo ">>> 使用 workflow_dispatch 传入的镜像"
+        else
+          echo ">>> 使用仓库 images.txt"
+        fi
+        echo "--- images.txt 内容 ---"
+        cat images.txt
 
     - name: Docker Setup Buildx
       uses: docker/setup-buildx-action@v3
