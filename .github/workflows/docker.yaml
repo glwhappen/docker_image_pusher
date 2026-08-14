@@ -152,9 +152,10 @@ jobs:
                fi
             fi
             
-            # 将@sha256:等字符删除
-            image_name_tag="${image_name_tag%%@*}"
-            new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$platform_prefix$name_space_prefix$image_name_tag"
+            # 保留完整路径（含命名空间），去掉 docker.io/ 前缀和 @sha256 后缀
+            clean_image="${image%%@*}"
+            clean_image="${clean_image#docker.io/}"
+            new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$platform_prefix$clean_image"
             echo "docker tag $image $new_image"
             docker tag $image $new_image
             echo "docker push $new_image"
