@@ -7,6 +7,11 @@ on:
         description: '镜像名（如 node:22-alpine），留空则读 images.txt'
         required: false
         type: string
+      account:
+        description: '阿里云账号（default 或自定义）'
+        required: false
+        default: 'default'
+        type: string
   push:
     branches: [ main ]
 
@@ -16,6 +21,11 @@ env:
   ALIYUN_NAME_SPACE: "${{ secrets.ALIYUN_NAME_SPACE }}"
   ALIYUN_REGISTRY_USER: "${{ secrets.ALIYUN_REGISTRY_USER }}"
   ALIYUN_REGISTRY_PASSWORD: "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}"
+  # 第二个账号（可选，配好 secret 后启用）
+  ALIYUN2_REGISTRY: "${{ secrets.ALIYUN2_REGISTRY }}"
+  ALIYUN2_NAME_SPACE: "${{ secrets.ALIYUN2_NAME_SPACE }}"
+  ALIYUN2_REGISTRY_USER: "${{ secrets.ALIYUN2_REGISTRY_USER }}"
+  ALIYUN2_REGISTRY_PASSWORD: "${{ secrets.ALIYUN2_REGISTRY_PASSWORD }}"
 
 jobs:
 
@@ -73,7 +83,18 @@ jobs:
 
     - name: Build and push image Aliyun
       run: |
-        docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
+        # 按账号选择 registry/namespace/凭证（default 或第二个账号）
+        ACCOUNT="${{ github.event.inputs.account || 'default' }}"
+        if [ "$ACCOUNT" = "default" ] || [ -z "$ALIYUN2_REGISTRY" ]; then
+          REGISTRY="$ALIYUN_REGISTRY"
+          NAME_SPACE="$ALIYUN_NAME_SPACE"
+          docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
+        else
+          REGISTRY="$ALIYUN2_REGISTRY"
+          NAME_SPACE="$ALIYUN2_NAME_SPACE"
+          docker login -u $ALIYUN2_REGISTRY_USER -p $ALIYUN2_REGISTRY_PASSWORD $ALIYUN2_REGISTRY
+        fi
+        echo ">>> 使用账号: $ACCOUNT -> $REGISTRY/$NAME_SPACE"
         # 数据预处理,判断镜像是否重名
         declare -A duplicate_images
         declare -A temp_map
@@ -156,7 +177,7 @@ jobs:
             clean_image="${image%%@*}"
             clean_image="${clean_image#docker.io/}"
             clean_image="${clean_image//\//_}"
-            new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$platform_prefix$clean_image"
+            new_image="$REGISTRY/$NAME_SPACE/$platform_prefix$clean_image"
             echo "docker tag $image $new_image"
             docker tag $image $new_image
             echo "docker push $new_image"
@@ -179,8 +200,9 @@ jobs:
       run: |
         if [ -n "${{ github.event.inputs.image }}" ]; then
           IMAGE="${{ github.event.inputs.image }}"
+          ACCOUNT="${{ github.event.inputs.account || 'default' }}"
           curl -s -X POST "${{ secrets.WEBHOOK_URL }}/api/webhook" \
             -H "Authorization: Bearer ${{ secrets.WEBHOOK_TOKEN }}" \
             -H "Content-Type: application/json" \
-            -d "{\"image\":\"$IMAGE\",\"status\":\"${{ job.status }}\"}" || true
+            -d "{\"image\":\"$IMAGE\",\"account\":\"$ACCOUNT\",\"status\":\"${{ job.status }}\"}" || true
         fi
