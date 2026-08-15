@@ -152,9 +152,10 @@ jobs:
                fi
             fi
             
-            # 保留完整路径（含命名空间），去掉 docker.io/ 前缀和 @sha256 后缀
+            # 命名空间压平（/ 替换成 _），兼容 ACR 个人版两级路径
             clean_image="${image%%@*}"
             clean_image="${clean_image#docker.io/}"
+            clean_image="${clean_image//\//_}"
             new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$platform_prefix$clean_image"
             echo "docker tag $image $new_image"
             docker tag $image $new_image
