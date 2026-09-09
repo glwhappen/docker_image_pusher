@@ -1,0 +1,113 @@
+name: Discourse Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      hostname:
+        description: 'Discourse 域名'
+        required: true
+        default: 'topic.hsfp.cn'
+        type: string
+      developer_emails:
+        description: '管理员邮箱(逗号分隔)'
+        required: true
+        default: '1597721684@qq.com'
+        type: string
+      image_tag:
+        description: '推送镜像 tag'
+        required: true
+        default: 'latest'
+        type: string
+
+env:
+  ALIYUN_REGISTRY: "${{ secrets.ALIYUN_REGISTRY }}"
+  ALIYUN_NAME_SPACE: "${{ secrets.ALIYUN_NAME_SPACE }}"
+  ALIYUN_REGISTRY_USER: "${{ secrets.ALIYUN_REGISTRY_USER }}"
+  ALIYUN_REGISTRY_PASSWORD: "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+    - name: Maximize build space
+      uses: easimon/maximize-build-space@master
+      with:
+        root-reserve-mb: 2048
+        swap-size-mb: 128
+        remove-dotnet: 'true'
+        remove-haskell: 'true'
+        remove-android: 'true'
+        remove-codeql: 'true'
+        build-mount-path: '/var/lib/docker/'
+
+    - name: Restart docker
+      run: sudo service docker restart
+
+    - name: Clone discourse_docker
+      run: |
+        cd ~
+        git clone --depth 1 https://github.com/discourse/discourse_docker.git
+
+    - name: Write app.yml
+      env:
+        HOSTNAME_INPUT: "${{ github.event.inputs.hostname }}"
+        EMAILS_INPUT: "${{ github.event.inputs.developer_emails }}"
+      run: |
+        cat > ~/discourse_docker/containers/app.yml <<'EOF'
+templates:
+  - "templates/postgres.template.yml"
+  - "templates/redis.template.yml"
+  - "templates/web.template.yml"
+  - "templates/web.ratelimited.template.yml"
+
+expose:
+  - "8080:80"
+
+env:
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+  LANGUAGE: en_US.UTF-8
+  DISCOURSE_HOSTNAME: "HOSTNAME_PLACEHOLDER"
+  DISCOURSE_DEVELOPER_EMAILS: "EMAILS_PLACEHOLDER"
+  DISCOURSE_SKIP_EMAIL_SETUP: "1"
+  DISCOURSE_FORCE_HTTPS: true
+
+volumes:
+  - volume:
+      host: /var/discourse/shared/standalone
+      guest: /shared
+  - volume:
+      host: /var/discourse/shared/standalone/log/var-log
+      guest: /var/log
+
+hooks:
+  after_code:
+    - exec:
+        cd: $home/plugins
+        cmd:
+          - git clone https://github.com/discourse/docker_manager.git
+
+run:
+  - exec: echo "Beginning of custom commands"
+  - exec: echo "End of custom commands"
+EOF
+        sed -i "s|HOSTNAME_PLACEHOLDER|$HOSTNAME_INPUT|" ~/discourse_docker/containers/app.yml
+        sed -i "s|EMAILS_PLACEHOLDER|$EMAILS_INPUT|" ~/discourse_docker/containers/app.yml
+        echo "=== app.yml ==="
+        cat ~/discourse_docker/containers/app.yml
+
+    - name: Bootstrap
+      run: |
+        cd ~/discourse_docker
+        sudo ./launcher bootstrap app
+
+    - name: Push to Aliyun
+      run: |
+        docker login -u "$ALIYUN_REGISTRY_USER" -p "$ALIYUN_REGISTRY_PASSWORD" "$ALIYUN_REGISTRY"
+        docker tag local_discourse/app "$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/discourse_app:${{ github.event.inputs.image_tag }}"
+        docker push "$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/discourse_app:${{ github.event.inputs.image_tag }}"
+
+    - name: Notify done
+      if: always()
+      run: echo "Discourse 构建流程结束"
