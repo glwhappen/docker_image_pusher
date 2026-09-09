@@ -54,44 +54,8 @@ jobs:
         HOSTNAME_INPUT: "${{ github.event.inputs.hostname }}"
         EMAILS_INPUT: "${{ github.event.inputs.developer_emails }}"
       run: |
-        cat > ~/discourse_docker/containers/app.yml <<'EOF'
-templates:
-  - "templates/postgres.template.yml"
-  - "templates/redis.template.yml"
-  - "templates/web.template.yml"
-  - "templates/web.ratelimited.template.yml"
-
-expose:
-  - "8080:80"
-
-env:
-  LC_ALL: en_US.UTF-8
-  LANG: en_US.UTF-8
-  LANGUAGE: en_US.UTF-8
-  DISCOURSE_HOSTNAME: "HOSTNAME_PLACEHOLDER"
-  DISCOURSE_DEVELOPER_EMAILS: "EMAILS_PLACEHOLDER"
-  DISCOURSE_SKIP_EMAIL_SETUP: "1"
-  DISCOURSE_FORCE_HTTPS: true
-
-volumes:
-  - volume:
-      host: /var/discourse/shared/standalone
-      guest: /shared
-  - volume:
-      host: /var/discourse/shared/standalone/log/var-log
-      guest: /var/log
-
-hooks:
-  after_code:
-    - exec:
-        cd: $home/plugins
-        cmd:
-          - git clone https://github.com/discourse/docker_manager.git
-
-run:
-  - exec: echo "Beginning of custom commands"
-  - exec: echo "End of custom commands"
-EOF
+        mkdir -p ~/discourse_docker/containers
+        echo 'dGVtcGxhdGVzOgogIC0gInRlbXBsYXRlcy9wb3N0Z3Jlcy50ZW1wbGF0ZS55bWwiCiAgLSAidGVtcGxhdGVzL3JlZGlzLnRlbXBsYXRlLnltbCIKICAtICJ0ZW1wbGF0ZXMvd2ViLnRlbXBsYXRlLnltbCIKICAtICJ0ZW1wbGF0ZXMvd2ViLnJhdGVsaW1pdGVkLnRlbXBsYXRlLnltbCIKCmV4cG9zZToKICAtICI4MDgwOjgwIgoKZW52OgogIExDX0FMTDogZW5fVVMuVVRGLTgKICBMQU5HOiBlbl9VUy5VVEYtOAogIExBTkdVQUdFOiBlbl9VUy5VVEYtOAogIERJU0NPVVJTRV9IT1NUTkFNRTogIkhPU1ROQU1FX1BMQUNFSE9MREVSIgogIERJU0NPVVJTRV9ERVZFTE9QRVJfRU1BSUxTOiAiRU1BSUxTX1BMQUNFSE9MREVSIgogIERJU0NPVVJTRV9TS0lQX0VNQUlMX1NFVFVQOiAiMSIKICBESVNDT1VSU0VfRk9SQ0VfSFRUUFM6IHRydWUKCnZvbHVtZXM6CiAgLSB2b2x1bWU6CiAgICAgIGhvc3Q6IC92YXIvZGlzY291cnNlL3NoYXJlZC9zdGFuZGFsb25lCiAgICAgIGd1ZXN0OiAvc2hhcmVkCiAgLSB2b2x1bWU6CiAgICAgIGhvc3Q6IC92YXIvZGlzY291cnNlL3NoYXJlZC9zdGFuZGFsb25lL2xvZy92YXItbG9nCiAgICAgIGd1ZXN0OiAvdmFyL2xvZwoKaG9va3M6CiAgYWZ0ZXJfY29kZToKICAgIC0gZXhlYzoKICAgICAgICBjZDogJGhvbWUvcGx1Z2lucwogICAgICAgIGNtZDoKICAgICAgICAgIC0gZ2l0IGNsb25lIGh0dHBzOi8vZ2l0aHViLmNvbS9kaXNjb3Vyc2UvZG9ja2VyX21hbmFnZXIuZ2l0CgpydW46CiAgLSBleGVjOiBlY2hvICJCZWdpbm5pbmcgb2YgY3VzdG9tIGNvbW1hbmRzIgogIC0gZXhlYzogZWNobyAiRW5kIG9mIGN1c3RvbSBjb21tYW5kcyIK' | base64 -d > ~/discourse_docker/containers/app.yml
         sed -i "s|HOSTNAME_PLACEHOLDER|$HOSTNAME_INPUT|" ~/discourse_docker/containers/app.yml
         sed -i "s|EMAILS_PLACEHOLDER|$EMAILS_INPUT|" ~/discourse_docker/containers/app.yml
         echo "=== app.yml ==="
